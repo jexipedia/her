@@ -2,110 +2,341 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Valentine's Day, Yosan!</title>
-    <style>
-      body {
-        background-color: #ffebf0;
-        text-align: center;
-        font-family: "Courier New", Courier, monospace;
-        color: #d63384;
-        margin: 0;
-        padding: 0;
-      }
-      canvas {
-        display: block;
-        margin: 0 auto;
-        margin-top: 20px;
-      }
-      .valentine-text {
-        font-size: 24px;
-        margin-top: 50px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" type="text/javascript"></script>
+    <link rel="icon" href="public/images/favicon.png" type="image/x-icon" />
+    <title>Flowers</title>
   </head>
-  <body>
-    <!-- Flower Animation -->
-    <canvas id="canvas"></canvas>
 
-    <!-- Valentine’s Day Text Animation -->
-    <div class="valentine-text">
-      <h1>Happy Valentine's Day, Yosan! 💖</h1>
-      <p id="message"></p>
-    </div>
+  <body class="not-loaded">
+    <section>
+      <div class="night"></div>
+      <div class="flowers">
+        <div class="flower flower--1">
+          <div class="flower__leafs flower__leafs--1">
+            <div class="flower__leaf flower__leaf--1"></div>
+            <div class="flower__leaf flower__leaf--2"></div>
+            <div class="flower__leaf flower__leaf--3"></div>
+            <div class="flower__leaf flower__leaf--4"></div>
+            <div class="flower__white-circle"></div>
 
-    <script>
-      // Flower Animation Script (from JessicaaSun's project)
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+            <div class="flower__line__leaf flower__line__leaf--3"></div>
+            <div class="flower__line__leaf flower__line__leaf--4"></div>
+            <div class="flower__line__leaf flower__line__leaf--5"></div>
+            <div class="flower__line__leaf flower__line__leaf--6"></div>
+          </div>
+        </div>
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 0.5;
+        <div class="flower flower--2">
+          <div class="flower__leafs flower__leafs--2">
+            <div class="flower__leaf flower__leaf--1"></div>
+            <div class="flower__leaf flower__leaf--2"></div>
+            <div class="flower__leaf flower__leaf--3"></div>
+            <div class="flower__leaf flower__leaf--4"></div>
+            <div class="flower__white-circle"></div>
 
-      let angle = 0;
-      let petals = [];
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+            <div class="flower__line__leaf flower__line__leaf--3"></div>
+            <div class="flower__line__leaf flower__line__leaf--4"></div>
+          </div>
+        </div>
 
-      function Petal(x, y, size, speed) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speed = speed;
-        this.alpha = 1;
-      }
+        <div class="flower flower--3">
+          <div class="flower__leafs flower__leafs--3">
+            <div class="flower__leaf flower__leaf--1"></div>
+            <div class="flower__leaf flower__leaf--2"></div>
+            <div class="flower__leaf flower__leaf--3"></div>
+            <div class="flower__leaf flower__leaf--4"></div>
+            <div class="flower__white-circle"></div>
 
-      Petal.prototype.update = function () {
-        this.y += this.speed;
-        this.alpha -= 0.005;
-      };
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+            <div class="flower__line__leaf flower__line__leaf--1"></div>
+            <div class="flower__line__leaf flower__line__leaf--2"></div>
+            <div class="flower__line__leaf flower__line__leaf--3"></div>
+            <div class="flower__line__leaf flower__line__leaf--4"></div>
+          </div>
+        </div>
 
-      function createPetal() {
-        let x = canvas.width / 2 + Math.sin(angle) * 100;
-        let y = canvas.height / 2 - Math.cos(angle) * 100;
-        let size = Math.random() * 15 + 10;
-        let speed = Math.random() * 2 + 1;
-        petals.push(new Petal(x, y, size, speed));
-        angle += 0.3;
-      }
+        <div class="grow-ans" style="--d: 1.2s">
+          <div class="flower__g-long">
+            <div class="flower__g-long__top"></div>
+            <div class="flower__g-long__bottom"></div>
+          </div>
+        </div>
 
-      function drawPetals() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < petals.length; i++) {
-          let petal = petals[i];
-          ctx.beginPath();
-          ctx.arc(petal.x, petal.y, petal.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 0, 255, ${petal.alpha})`; // Blue petal color
-          ctx.fill();
-          petal.update();
-          if (petal.alpha <= 0) {
-            petals.splice(i, 1);
-            i--;
-          }
-        }
-      }
+        <div class="growing-grass">
+          <div class="flower__grass flower__grass--1">
+            <div class="flower__grass--top"></div>
+            <div class="flower__grass--bottom"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+            <div class="flower__grass__overlay"></div>
+          </div>
+        </div>
 
-      function animate() {
-        createPetal();
-        drawPetals();
-        requestAnimationFrame(animate);
-      }
-      animate();
+        <div class="growing-grass">
+          <div class="flower__grass flower__grass--2">
+            <div class="flower__grass--top"></div>
+            <div class="flower__grass--bottom"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+            <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+            <div class="flower__grass__overlay"></div>
+          </div>
+        </div>
 
-      // Automated Valentine's Message (from sojijr's project)
-      const message =
-        "Yosan, you are the light of my life. Your kindness, your laughter, your warmth – they fill my days with joy. I am so lucky to have you, and I will always love you. ❤️";
-      let i = 0;
+        <div class="grow-ans" style="--d: 2.4s">
+          <div class="flower__g-right flower__g-right--1">
+            <div class="leaf"></div>
+          </div>
+        </div>
 
-      function typeMessage() {
-        if (i < message.length) {
-          document.getElementById("message").innerHTML += message.charAt(i);
-          i++;
-          setTimeout(typeMessage, 100);
-        }
-      }
-      typeMessage();
-    </script>
+        <div class="grow-ans" style="--d: 2.8s">
+          <div class="flower__g-right flower__g-right--2">
+            <div class="leaf"></div>
+          </div>
+        </div>
+
+        <div class="grow-ans" style="--d: 2.8s">
+          <div class="flower__g-front">
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div
+              class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8"
+            >
+              <div class="flower__g-front__leaf"></div>
+            </div>
+            <div class="flower__g-front__line"></div>
+          </div>
+        </div>
+
+        <div class="grow-ans" style="--d: 3.2s">
+          <div class="flower__g-fr">
+            <div class="leaf"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+            <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--0">
+          <div class="grow-ans" style="--d: 3s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 2.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.4s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--1">
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.8s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--2">
+          <div class="grow-ans" style="--d: 4s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.4s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--3">
+          <div class="grow-ans" style="--d: 4s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--4">
+          <div class="grow-ans" style="--d: 4s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--5">
+          <div class="grow-ans" style="--d: 4s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--6">
+          <div class="grow-ans" style="--d: 4.2s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.4s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.6s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 4.8s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+
+        <div class="long-g long-g--7">
+          <div class="grow-ans" style="--d: 3s">
+            <div class="leaf leaf--0"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.2s">
+            <div class="leaf leaf--1"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.5s">
+            <div class="leaf leaf--2"></div>
+          </div>
+          <div class="grow-ans" style="--d: 3.6s">
+            <div class="leaf leaf--3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <canvas id="starfield"></canvas>
+      <button id="valentinesButton">Click Me! ❤</button>
+      <script src="script.js"></script>
+
+      <audio controls autoplay>
+        <source src="All I Ever Need   Austin Mahone.mp3" type="audio/ogg" />
+        <source src="All I Ever Need   Austin Mahone.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+    <!-- Add these buttons at the top of your body -->
+    <button id="audioControl"> Play Music</button>
+    <button id="valentinesButton">Click Me! ❤</button>
   </body>
 </html>
