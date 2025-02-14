@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Valentine's Day, Yosan!</title>
+    <style>
+      body {
+        background-color: #ffebf0;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        color: #d63384;
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+      .valentine-text {
+        font-size: 24px;
+        margin-top: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flower Animation -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Valentine’s Day Text Animation -->
+    <div class="valentine-text">
+      <h1>Happy Valentine's Day, Yosan! 💖</h1>
+      <p id="message"></p>
+    </div>
+
+    <script>
+      // Flower Animation Script (from JessicaaSun's project)
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight * 0.5;
+
+      let angle = 0;
+      let petals = [];
+
+      function Petal(x, y, size, speed) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speed = speed;
+        this.alpha = 1;
+      }
+
+      Petal.prototype.update = function () {
+        this.y += this.speed;
+        this.alpha -= 0.005;
+      };
+
+      function createPetal() {
+        let x = canvas.width / 2 + Math.sin(angle) * 100;
+        let y = canvas.height / 2 - Math.cos(angle) * 100;
+        let size = Math.random() * 15 + 10;
+        let speed = Math.random() * 2 + 1;
+        petals.push(new Petal(x, y, size, speed));
+        angle += 0.3;
+      }
+
+      function drawPetals() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < petals.length; i++) {
+          let petal = petals[i];
+          ctx.beginPath();
+          ctx.arc(petal.x, petal.y, petal.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 0, 255, ${petal.alpha})`; // Blue petal color
+          ctx.fill();
+          petal.update();
+          if (petal.alpha <= 0) {
+            petals.splice(i, 1);
+            i--;
+          }
+        }
+      }
+
+      function animate() {
+        createPetal();
+        drawPetals();
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      // Automated Valentine's Message (from sojijr's project)
+      const message =
+        "Yosan, you are the light of my life. Your kindness, your laughter, your warmth – they fill my days with joy. I am so lucky to have you, and I will always love you. ❤️";
+      let i = 0;
+
+      function typeMessage() {
+        if (i < message.length) {
+          document.getElementById("message").innerHTML += message.charAt(i);
+          i++;
+          setTimeout(typeMessage, 100);
+        }
+      }
+      typeMessage();
+    </script>
+  </body>
+</html>
